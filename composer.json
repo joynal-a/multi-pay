@@ -1,0 +1,54 @@
+{
+  "name": "joynala/multi-pay",
+  "description": "The MultiPay package allows you to easily add multiple payment gateways to your Laravel application.",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Abedin\\MultiPay\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Abedin\\MultiPay\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Joynal Abedin",
+      "email": "abedin.dev@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+    "stripe/stripe-php": "^12|^13|^14|^15|^16|^17",
+    "razorpay/razorpay": "^2.9",
+    "yabacon/paystack-php": "^2.2",
+    "braintree/braintree_php": "^6.32",
+    "paytabscom/laravel_paytabs": "^1.9",
+    "adyen/php-api-library": "^28.3",
+    "authorizenet/authorizenet": "^2.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+    "phpunit/phpunit": "^10.5|^11.0|^12.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Abedin\\MultiPay\\Providers\\MultiPayServiceProvider"
+      ],
+      "aliases": {
+        "MultiPay": "Abedin\\MultiPay\\Facades\\MultiPay"
+      }
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
