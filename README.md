@@ -105,6 +105,7 @@ if ($result->success) {
 | `twocheckout` | 2Checkout (Verifone) | Global |
 | `voguepay` | VoguePay | Nigeria |
 | `payfast` | PayFast | South Africa |
+| `fygaro` | Fygaro | Caribbean / Latin America |
 | `demo` | Demo gateway | Local testing only — never enable in production |
 | `onafriq`, `palmpay`, `toppay`, `stepay` | Scaffolds | Registered but not implemented (no public API docs); they throw a clear exception |
 
@@ -468,6 +469,7 @@ Keys listed are the package's names; map each to your JSON field in `config/mult
 | `twocheckout` | `merchant_code`, `secret_key`, `buy_link_secret_word` | fixed endpoints |
 | `voguepay` | `merchant_id` (+ optional `developer_code`, `demo`) | fixed endpoint |
 | `payfast` | `merchant_id`, `merchant_key`, `base_url` (+ optional `passphrase`) | `https://sandbox.payfast.co.za` → `https://www.payfast.co.za` |
+| `fygaro` | `button_url`, `api_key`, `secret_key` | button URL from your Fygaro dashboard; set the button's Return URL to `https://your-app.com/multipay/fygaro/return` and Hook URL to `https://your-app.com/multipay/fygaro/hook` (JWT features need the Pro plan) |
 
 ## How verification works
 

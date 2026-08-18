@@ -359,6 +359,14 @@ return [
             'icon' => null, // packaged SVG tile is used unless you set a URL here
         ],
 
+        'fygaro' => [
+            'is_active' => true,
+            'button_url' => 'button_url', // your payment button's URL from the Fygaro dashboard
+            'api_key' => 'api_key',
+            'secret_key' => 'secret_key',
+            'icon' => null, // packaged SVG tile is used unless you set a URL here
+        ],
+
         'toppay' => [
             'is_active' => true,
             'merchant_id' => 'merchant_id',

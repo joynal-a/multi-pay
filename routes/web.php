@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Abedin\MultiPay\Http\Controllers\BraintreeCheckoutController;
 use Abedin\MultiPay\Http\Controllers\CashfreeCheckoutController;
 use Abedin\MultiPay\Http\Controllers\FormPostCheckoutController;
+use Abedin\MultiPay\Http\Controllers\FygaroBridgeController;
 use Abedin\MultiPay\Http\Controllers\GatewayAdminController;
 use Abedin\MultiPay\Http\Controllers\HyperpayCheckoutController;
 use Abedin\MultiPay\Http\Controllers\PayuCheckoutController;
@@ -31,6 +32,25 @@ Route::group([
     Route::get('/payu/{session}/checkout', [PayuCheckoutController::class, 'show'])->name('payu.checkout');
     Route::get('/form/{session}/checkout', [FormPostCheckoutController::class, 'show'])->name('form.checkout');
     Route::get('/hyperpay/{session}/checkout', [HyperpayCheckoutController::class, 'show'])->name('hyperpay.checkout');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Fygaro static bridge
+|--------------------------------------------------------------------------
+|
+| Fygaro's button settings take ONE fixed return URL and ONE fixed hook URL.
+| Point them here; the bridge resolves the session from custom_reference.
+| No 'web' middleware: the hook is a server-to-server JSON POST (no session,
+| no CSRF token) and the return is a plain redirect.
+|
+*/
+Route::group([
+    'prefix' => config('multipay.internal_routes.prefix', 'multipay'),
+    'as' => config('multipay.internal_routes.as', 'multipay.internal.'),
+], function () {
+    Route::get('/fygaro/return', [FygaroBridgeController::class, 'return'])->name('fygaro.return');
+    Route::post('/fygaro/hook', [FygaroBridgeController::class, 'hook'])->name('fygaro.hook');
 });
 
 /*

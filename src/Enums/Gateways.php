@@ -41,6 +41,7 @@ enum Gateways: string
     case TwoCheckout = 'twocheckout';
     case Voguepay = 'voguepay';
     case PayFast = 'payfast';
+    case Fygaro = 'fygaro';
     case Toppay = 'toppay';
     case Stepay = 'stepay';
 }
