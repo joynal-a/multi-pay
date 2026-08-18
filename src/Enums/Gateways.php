@@ -40,6 +40,7 @@ enum Gateways: string
     case Ngenius = 'ngenius';
     case TwoCheckout = 'twocheckout';
     case Voguepay = 'voguepay';
+    case PayFast = 'payfast';
     case Toppay = 'toppay';
     case Stepay = 'stepay';
 }

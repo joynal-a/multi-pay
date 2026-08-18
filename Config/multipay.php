@@ -350,6 +350,15 @@ return [
             'icon' => null, // packaged SVG tile is used unless you set a URL here
         ],
 
+        'payfast' => [
+            'is_active' => true,
+            'merchant_id' => 'merchant_id',
+            'merchant_key' => 'merchant_key',
+            'passphrase' => 'passphrase', // optional — required only if set on the PayFast account
+            'base_url' => 'base_url', // https://sandbox.payfast.co.za | https://www.payfast.co.za
+            'icon' => null, // packaged SVG tile is used unless you set a URL here
+        ],
+
         'toppay' => [
             'is_active' => true,
             'merchant_id' => 'merchant_id',

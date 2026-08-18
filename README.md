@@ -104,6 +104,7 @@ if ($result->success) {
 | `ngenius` | N-Genius (Network International) | MENA |
 | `twocheckout` | 2Checkout (Verifone) | Global |
 | `voguepay` | VoguePay | Nigeria |
+| `payfast` | PayFast | South Africa |
 | `demo` | Demo gateway | Local testing only — never enable in production |
 | `onafriq`, `palmpay`, `toppay`, `stepay` | Scaffolds | Registered but not implemented (no public API docs); they throw a clear exception |
 
@@ -466,6 +467,7 @@ Keys listed are the package's names; map each to your JSON field in `config/mult
 | `ngenius` | `api_key`, `outlet_ref`, `base_url` | `https://api-gateway.sandbox.ngenius-payments.com` → `https://api-gateway.ngenius-payments.com` |
 | `twocheckout` | `merchant_code`, `secret_key`, `buy_link_secret_word` | fixed endpoints |
 | `voguepay` | `merchant_id` (+ optional `developer_code`, `demo`) | fixed endpoint |
+| `payfast` | `merchant_id`, `merchant_key`, `base_url` (+ optional `passphrase`) | `https://sandbox.payfast.co.za` → `https://www.payfast.co.za` |
 
 ## How verification works
 

@@ -45,6 +45,7 @@ class BaseManager
         'ngenius' => \Abedin\MultiPay\Services\NgeniusGateway::class,
         'twocheckout' => \Abedin\MultiPay\Services\TwoCheckoutGateway::class,
         'voguepay' => \Abedin\MultiPay\Services\VoguepayGateway::class,
+        'payfast' => \Abedin\MultiPay\Services\PayFastGateway::class,
         'toppay' => \Abedin\MultiPay\Services\ToppayGateway::class,
         'stepay' => \Abedin\MultiPay\Services\StepayGateway::class,
     ];
