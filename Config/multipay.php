@@ -367,6 +367,22 @@ return [
             'icon' => null, // packaged SVG tile is used unless you set a URL here
         ],
 
+        'ecocash' => [
+            'is_active' => true,
+            'api_key' => 'api_key',
+            'mode' => 'mode', // sandbox | live
+            'icon' => null, // packaged SVG tile is used unless you set a URL here
+        ],
+
+        'innbucks' => [
+            'is_active' => true,
+            'base_url' => 'base_url', // https://staging.innbucks.co.zw | live URL issued by InnBucks
+            'api_key' => 'api_key',
+            'username' => 'username',
+            'password' => 'password',
+            'icon' => null, // packaged SVG tile is used unless you set a URL here
+        ],
+
         'toppay' => [
             'is_active' => true,
             'merchant_id' => 'merchant_id',

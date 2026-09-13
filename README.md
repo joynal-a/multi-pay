@@ -106,6 +106,8 @@ if ($result->success) {
 | `voguepay` | VoguePay | Nigeria |
 | `payfast` | PayFast | South Africa |
 | `fygaro` | Fygaro | Caribbean / Latin America |
+| `ecocash` | EcoCash | Zimbabwe |
+| `innbucks` | InnBucks | Zimbabwe |
 | `demo` | Demo gateway | Local testing only — never enable in production |
 | `onafriq`, `palmpay`, `toppay`, `stepay` | Scaffolds | Registered but not implemented (no public API docs); they throw a clear exception |
 
@@ -470,6 +472,8 @@ Keys listed are the package's names; map each to your JSON field in `config/mult
 | `voguepay` | `merchant_id` (+ optional `developer_code`, `demo`) | fixed endpoint |
 | `payfast` | `merchant_id`, `merchant_key`, `base_url` (+ optional `passphrase`) | `https://sandbox.payfast.co.za` → `https://www.payfast.co.za` |
 | `fygaro` | `button_url`, `api_key`, `secret_key` | button URL from your Fygaro dashboard; set the button's Return URL to `https://your-app.com/multipay/fygaro/return` and Hook URL to `https://your-app.com/multipay/fygaro/hook` (JWT features need the Pro plan) |
+| `ecocash` | `api_key`, `mode` | `sandbox` → `live`; requires `customer.phone` (EcoCash number, e.g. `0771234567`) — the customer approves a PIN prompt on their phone while the package's waiting page polls the status |
+| `innbucks` | `base_url`, `api_key`, `username`, `password` | `https://staging.innbucks.co.zw` → live URL from InnBucks; USD only — the waiting page shows the payment code + QR and polls until paid |
 
 ## How verification works
 

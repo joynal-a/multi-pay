@@ -47,6 +47,8 @@ class BaseManager
         'voguepay' => \Abedin\MultiPay\Services\VoguepayGateway::class,
         'payfast' => \Abedin\MultiPay\Services\PayFastGateway::class,
         'fygaro' => \Abedin\MultiPay\Services\FygaroGateway::class,
+        'ecocash' => \Abedin\MultiPay\Services\EcoCashGateway::class,
+        'innbucks' => \Abedin\MultiPay\Services\InnBucksGateway::class,
         'toppay' => \Abedin\MultiPay\Services\ToppayGateway::class,
         'stepay' => \Abedin\MultiPay\Services\StepayGateway::class,
     ];
