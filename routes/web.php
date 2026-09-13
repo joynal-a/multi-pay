@@ -7,6 +7,7 @@ use Abedin\MultiPay\Http\Controllers\FormPostCheckoutController;
 use Abedin\MultiPay\Http\Controllers\FygaroBridgeController;
 use Abedin\MultiPay\Http\Controllers\GatewayAdminController;
 use Abedin\MultiPay\Http\Controllers\HyperpayCheckoutController;
+use Abedin\MultiPay\Http\Controllers\MobileMoneyCheckoutController;
 use Abedin\MultiPay\Http\Controllers\PayuCheckoutController;
 
 /*
@@ -32,6 +33,8 @@ Route::group([
     Route::get('/payu/{session}/checkout', [PayuCheckoutController::class, 'show'])->name('payu.checkout');
     Route::get('/form/{session}/checkout', [FormPostCheckoutController::class, 'show'])->name('form.checkout');
     Route::get('/hyperpay/{session}/checkout', [HyperpayCheckoutController::class, 'show'])->name('hyperpay.checkout');
+    Route::get('/mobile-money/{session}/checkout', [MobileMoneyCheckoutController::class, 'show'])->name('mobile-money.checkout');
+    Route::get('/mobile-money/{session}/status', [MobileMoneyCheckoutController::class, 'status'])->name('mobile-money.status');
 });
 
 /*
