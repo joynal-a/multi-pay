@@ -108,6 +108,7 @@ if ($result->success) {
 | `fygaro` | Fygaro | Caribbean / Latin America |
 | `ecocash` | EcoCash | Zimbabwe |
 | `innbucks` | InnBucks | Zimbabwe |
+| `strowallet` | StroWallet Payment Collection | Nigeria (NGN, USD) |
 | `demo` | Demo gateway | Local testing only — never enable in production |
 | `onafriq`, `palmpay`, `toppay`, `stepay` | Scaffolds | Registered but not implemented (no public API docs); they throw a clear exception |
 
@@ -474,12 +475,13 @@ Keys listed are the package's names; map each to your JSON field in `config/mult
 | `fygaro` | `button_url`, `api_key`, `secret_key` | button URL from your Fygaro dashboard; set the button's Return URL to `https://your-app.com/multipay/fygaro/return` and Hook URL to `https://your-app.com/multipay/fygaro/hook` (JWT features need the Pro plan) |
 | `ecocash` | `api_key`, `mode` | `sandbox` → `live`; requires `customer.phone` (EcoCash number, e.g. `0771234567`) — the customer approves a PIN prompt on their phone while the package's waiting page polls the status |
 | `innbucks` | `base_url`, `api_key`, `username`, `password` | `https://staging.innbucks.co.zw` → live URL from InnBucks; USD only — the waiting page shows the payment code + QR and polls until paid |
+| `strowallet` | `public_key` | fixed endpoints (no sandbox); key from `https://strowallet.com/user/api-key`; NGN and USD only. Bank transfers can settle after the redirect, so `confirm()` on the success route may return `pending` — the callback route confirms it once StroWallet reports `paid` |
 
 ## How verification works
 
 `confirm()` never trusts the customer's browser. Depending on the gateway it:
 
-- **queries the gateway API** using the reference stored at initiation — Stripe (checkout session), Razorpay (payment link), Paystack, PayTabs, Mollie, Moyasar, Checkout.com, Cashfree, Fawry, Paytm, Telr, N-Genius, HyperPay, 2Checkout, Worldpay, Mercado Pago, Flutterwave, DPO, Adyen, Square, Braintree, Authorize.Net, Tingg, VoguePay; **or**
+- **queries the gateway API** using the reference stored at initiation — Stripe (checkout session), Razorpay (payment link), Paystack, PayTabs, Mollie, Moyasar, Checkout.com, Cashfree, Fawry, Paytm, Telr, N-Genius, HyperPay, 2Checkout, Worldpay, Mercado Pago, Flutterwave, DPO, Adyen, Square, Braintree, Authorize.Net, Tingg, VoguePay, StroWallet; **or**
 - **validates a cryptographic proof** carried in the request — PayU (SHA-512 reverse hash), PayHere (signed notify), CCAvenue (AES-decrypted response), Hesabe (AES-decrypted payload).
 
 Signature comparisons use `hash_equals`; verifications match order reference and amount where the gateway returns them.

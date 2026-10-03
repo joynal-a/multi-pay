@@ -398,5 +398,11 @@ return [
             'base_url' => 'base_url',
             'icon' => null, // packaged SVG tile is used unless you set a URL here
         ],
+
+        'strowallet' => [
+            'is_active' => true,
+            'public_key' => 'public_key', // from https://strowallet.com/user/api-key — NGN and USD only
+            'icon' => null, // packaged SVG tile is used unless you set a URL here
+        ],
     ]
 ];
