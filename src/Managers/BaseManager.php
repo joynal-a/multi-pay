@@ -51,6 +51,7 @@ class BaseManager
         'innbucks' => \Abedin\MultiPay\Services\InnBucksGateway::class,
         'toppay' => \Abedin\MultiPay\Services\ToppayGateway::class,
         'stepay' => \Abedin\MultiPay\Services\StepayGateway::class,
+        'strowallet' => \Abedin\MultiPay\Services\StrowalletGateway::class,
     ];
 
     protected function getGatewayClass(string $name): ?string

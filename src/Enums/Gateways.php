@@ -46,4 +46,5 @@ enum Gateways: string
     case InnBucks = 'innbucks';
     case Toppay = 'toppay';
     case Stepay = 'stepay';
+    case Strowallet = 'strowallet';
 }
